@@ -1,0 +1,25 @@
+# coding=utf-8
+
+import configparser
+
+class Conf():
+    def wrl(self,sec,name,value):
+        '''配置文件写入'''
+        config = configparser.ConfigParser()
+        config.read('Config.ini')
+        try:
+            config.add_section(sec)
+            config.set(sec,name,value)
+
+        except configparser.DuplicateSectionError:
+            print("Section%salready exists"%sec)
+        #写入配置文件
+        config.write(open("Config.ini", "w"))
+
+
+    def read1(self,sec,name):
+        '''配置文件读取'''
+        cf=configparser.ConfigParser()
+        cf.read('..\\config\\Config.ini')
+        data=cf.get(sec,name)
+        return data
