@@ -42,7 +42,38 @@ class Combin1(Ucenterdata):
     def bind(self,num,data):
         '''绑定接口'''
         result=self.regis(data) #未绑定用户登录
+        code=self.data.dykeys(data,'登陆','sysCode')
         sid = result['data']['sid']
-        variable={'sid':sid}
+        variable={'sid':sid,'sysCode':code}
         bindresult=self.data.combinationdict('/umis/user/bindUser.do',num,'绑定',variable)
         return bindresult
+
+    def unbind(self,num,data):
+        '''解除绑定接口'''
+        result=self.regis(data) #绑定用户登录
+        code=self.data.dykeys(data,'登陆','sysCode')
+        sid = result['data']['sid']
+        variable={'sid':sid,'sysCode':code}
+        unbindresult=self.data.combinationdict('/umis/user/unbindUser.do',num,'解绑',variable)
+        return unbindresult
+
+    def onlinkuser(self,num,data):
+        '''关联账号接口'''
+        result=self.regis(data) #未关联用户登录
+        code=self.data.dykeys(data,'登陆','sysCode')
+        sid = result['data']['sid']
+        variable={'sid':sid,'sysCode':code}
+        onlinkresult=self.data.combinationdict('/user/realtionLinkUserAccount.do',num,'关联',variable)
+        return onlinkresult
+
+    def qxonlinkuser(self,num,data):
+        '''取消关联账号接口'''
+        result=self.regis(data) #已关联用户登录
+        code=self.data.dykeys(data,'登陆','sysCode')
+        sid = result['data']['sid']
+        variable={'sid':sid,'sysCode':code}
+        onlinkresult=self.data.combinationdict('/umis/user/cancelLinkUserAccount.do',num,'取消关联',variable)
+        return onlinkresult
+
+
+
