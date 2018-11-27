@@ -27,26 +27,45 @@ class Ucenterdata():
         p=m[3:-1] #获取数据
         return p
 
+    def uccode(self,num,name):
+        '''获取code的值'''
+        c=Opendata()
+        m=c.openexcel(num,name)
+        p=m[-1] #获取数据
+        return p
+
+    def requestvalue(self,num):
+        '''获取接口请求url的值'''
+        c=Opendata()
+        m=c.openexcel(num,'请求')
+        p=m[2:] #获取数据
+        return p
+
+
+
     def dykeys(self,num,name,ucdata):
         '''获取excel列表中keys对应的某一行的value值'''
         p = self.ucvalue(num,name)[self.uckeys(name).index(ucdata)] #页面中所需的数据值
         return p
 
-    def combinationdict(self,url1,num,name,variable):
+    def combinationdict(self,urlnum,num,name,variable):
         '''
+        urlnum：获取url的行数变量、num：是获取参数value的行数、name:打开的excel名称、variable:增加的字典变量名称
         key和value组合生成字典+请求地址生成url:
-        tyep:判断是否增加参数的标识
         '''
         pyload=dict(zip(self.uckeys(name),self.ucvalue(num,name)))
         pyload=dict(pyload, **variable)
-        url=self.conf()+url1
+        url1=self.requestvalue(urlnum)
+        url=self.conf()+"".join(url1)
         r = requests.get(url,params=pyload)
+        print(r.url)
         return r.json()
 
-    def combinationdict1(self,url1,variable):
+    def combinationdict1(self,urlnum,variable):
         '''直接传入参数，不靠excel列表获取'''
+        url1=self.requestvalue(urlnum)
         pyload=variable
-        url=self.conf()+url1
+        url=self.conf()+"".join(url1)
         r = requests.get(url,params=pyload)
         return r.json()
 

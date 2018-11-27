@@ -7,7 +7,7 @@ class Opendata():
     '''打开excel读取数据'''
     def openexcel(self,num,name):
         read = Excelread()
-        read.open(r"..\file\ucenter接口设计.xlsx",name)
+        read.open(r"..\file\数据设计.xlsx",name)
         data=read.lines(num)
         modifydata=[]
         for i in range(0,len(data)):
