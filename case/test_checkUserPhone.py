@@ -1,6 +1,6 @@
 #coding=utf-8
 
-from blog.wh import Combin
+from blog.combination import Combin
 import unittest
 
 class Testregister(unittest.TestCase):

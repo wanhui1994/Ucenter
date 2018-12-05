@@ -1,9 +1,9 @@
 #coding=utf-8
 
-from blog.wh import Combin
+from blog.combination import Combin
 import unittest
 
-class Testregister(unittest.TestCase):
+class Testrealtion(unittest.TestCase):
     '''关联测试用例'''
     def setUp(self):
         self.reg = Combin()
