@@ -59,6 +59,7 @@ class Ucenterdata():
         url=self.conf()+"".join(url1)
         r = requests.get(url,params=pyload)
         print(r.url)
+        print(r.json())
         return r.json()
 
     def combinationdict1(self,urlnum,variable):
@@ -66,6 +67,16 @@ class Ucenterdata():
         url1=self.requestvalue(urlnum)
         pyload=variable
         url=self.conf()+"".join(url1)
+        r = requests.get(url,params=pyload)
+        print(r.url)
+        return r.json()
+
+
+    def deldata(self,urlnum,variable):
+        '''用户删除接口'''
+        url1=self.requestvalue(urlnum)
+        pyload=variable
+        url="http://ucms.test.faxuan.net"+"".join(url1)
         r = requests.get(url,params=pyload)
         return r.json()
 

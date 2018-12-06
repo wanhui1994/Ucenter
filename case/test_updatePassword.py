@@ -3,7 +3,8 @@
 from blog.combination import Combin
 import unittest
 
-class Testregister(unittest.TestCase):
+class Testupdatepas(unittest.TestCase):
+
     '''找回密码测试用例'''
     def setUp(self):
         self.reg = Combin()

@@ -23,7 +23,6 @@ class Combin(Ucenterdata):
         '''平台登录接口'''
         variable={}
         result=self.data.combinationdict(2,num,'平台登录',variable)
-        print(result)
         if result['code']== str(self.data.uccode(num,'平台登录')):
             return False
         else:
@@ -48,7 +47,7 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def bindUser(self,num,data):
+    def bindUser(self,data,num):
         '''绑定接口'''
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
@@ -58,7 +57,7 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def unbindUser(self,num,data):
+    def unbindUser(self,data,num):
         '''解绑接口'''
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
@@ -79,7 +78,7 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def cancelLink(self,num,data):
+    def cancelLink(self,data,num):
         '''取消关联接口'''
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
@@ -100,12 +99,11 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def createAndLink(self,num,data):
+    def createAndLink(self,data,num):
         '''手机号不存在创建帐号关联接口'''
         self.fblogin(data)
         variable={}
         result=self.data.combinationdict(10,num,'手机号不存在创建帐号关联',variable)
-        print(result)
         if result['code']== str(self.data.uccode(num,'手机号不存在创建帐号关联')):
             return False
         else:
@@ -173,16 +171,31 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def updateUserContactWay(self,num,data):
-        '''修改手机号、邮箱、qq  先登录绑定然后进行修改张阿红解绑操作'''
+    def updateUserContactWay(self,data,num):
+        '''修改手机号、邮箱、qq'''
         udata=self.ucode(data,'平台登录')
         sid=udata['data']['sid']
-        variable={'sid':sid}
+        user=udata['data']['userAccount']
+        variable={'sid':sid,'userAccount':user}
         result=self.data.combinationdict(17,num,'修改账号信息',variable)
         if result['code']== str(self.data.uccode(num,'修改账号信息')):
             return False
         else:
             return True
+
+    def DeleteUserForTest(self,num,dataname,data,data1):
+        '''删除用户'''
+
+        user=self.data.dykeys(num,dataname,data)
+        syscode=self.data.dykeys(num,dataname,data1)
+        variable={'sysCode':syscode,'userAccount':user}
+        result=self.data.deldata(18,variable)
+        print(result)
+        if result['code']=='200':
+            return False
+        else:
+            return True
+
 
     def liucheng(self,num,data):
         '''绑定--修改--解绑的流程'''

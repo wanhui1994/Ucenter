@@ -3,110 +3,112 @@
 from blog.combination import Combin
 import unittest
 
-class Testrlogin(unittest.TestCase):
-    '''平台登录测试用例'''
+class TestupdateUserContactWay(unittest.TestCase):
+    '''修改手机号、邮箱、qq测试用例'''
     def setUp(self):
         self.reg = Combin()
 
 
     def test01(self):
         self.reg = Combin()
-        result = self.reg.login(2)
+        result = self.reg.updateUserContactWay(2,2)
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test02(self):
         self.reg = Combin()
-        result = self.reg.login(3)
+        result = self.reg.updateUserContactWay(2,3)
         expect_result = False
         self.assertEqual(result, expect_result)
 
 
     def test03(self):
         self.reg = Combin()
-        result = self.reg.login(4)
+        result = self.reg.updateUserContactWay(2,4)
         expect_result = False
         self.assertEqual(result, expect_result)
 
-
     def test04(self):
         self.reg = Combin()
-        result = self.reg.login(5)
+        result = self.reg.updateUserContactWay(3,5)
         expect_result = False
         self.assertEqual(result, expect_result)
 
 
     def test05(self):
         self.reg = Combin()
-        result = self.reg.login(6)
+        result = self.reg.updateUserContactWay(3,6)
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test06(self):
         self.reg = Combin()
-        result = self.reg.login(7)
+        result = self.reg.updateUserContactWay(3,7)
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test07(self):
         self.reg = Combin()
-        result = self.reg.login(8)
+        result = self.reg.updateUserContactWay(2,8)
         expect_result = False
         self.assertEqual(result, expect_result)
-
 
     def test08(self):
         self.reg = Combin()
-        result = self.reg.login(9)
+        result = self.reg.updateUserContactWay(2,9)
         expect_result = False
         self.assertEqual(result, expect_result)
-
 
     def test09(self):
         self.reg = Combin()
-        result = self.reg.login(10)
+        result = self.reg.updateUserContactWay(2,10)
         expect_result = False
         self.assertEqual(result, expect_result)
 
-
     def test10(self):
         self.reg = Combin()
-        result = self.reg.login(11)
+        result = self.reg.updateUserContactWay(2,11)
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test11(self):
         self.reg = Combin()
-        result = self.reg.login(12)
+        result = self.reg.updateUserContactWay(2,12)
         expect_result = False
         self.assertEqual(result, expect_result)
 
-
     def test12(self):
         self.reg = Combin()
-        result = self.reg.login(13)
+        result = self.reg.updateUserContactWay(2,13)
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test13(self):
         self.reg = Combin()
-        result = self.reg.login(14)
+        result = self.reg.updateUserContactWay(2,14)
         expect_result = False
         self.assertEqual(result, expect_result)
-
 
     def test14(self):
         self.reg = Combin()
-        result = self.reg.login(15)
+        result = self.reg.updateUserContactWay(3,15)
         expect_result = False
         self.assertEqual(result, expect_result)
-
 
     def test15(self):
         self.reg = Combin()
-        result = self.reg.login(16)
+        result = self.reg.updateUserContactWay(3,16)
         expect_result = False
         self.assertEqual(result, expect_result)
+
+
+    def test16(self):
+        self.reg = Combin()
+        result = self.reg.updateUserContactWay(3,17)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+
 
     def tearDown(self):
         pass

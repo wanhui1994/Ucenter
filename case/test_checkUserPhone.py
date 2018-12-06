@@ -28,6 +28,18 @@ class Testregister(unittest.TestCase):
         expect_result = False
         self.assertEqual(result, expect_result)
 
+    def test04(self):
+        self.reg = Combin()
+        result = self.reg.checkUserPhone(5)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test05(self):
+        self.reg = Combin()
+        result = self.reg.checkUserPhone(6)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
 
     def tearDown(self):
         pass

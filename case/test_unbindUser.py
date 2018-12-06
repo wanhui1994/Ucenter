@@ -3,7 +3,7 @@
 from blog.combination import Combin
 import unittest
 
-class Testregister(unittest.TestCase):
+class Testunbinduser(unittest.TestCase):
     '''解绑测试用例'''
     def setUp(self):
         self.reg = Combin()
@@ -17,14 +17,50 @@ class Testregister(unittest.TestCase):
 
     def test02(self):
         self.reg = Combin()
-        result = self.reg.unbindUser(3,2)
+        result = self.reg.unbindUser(2,3)
         expect_result = False
         self.assertEqual(result, expect_result)
 
 
     def test03(self):
         self.reg = Combin()
-        result = self.reg.unbindUser(4,2)
+        result = self.reg.unbindUser(2,4)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test04(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,5)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test05(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,6)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test06(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,7)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test07(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,8)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test08(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,9)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test09(self):
+        self.reg = Combin()
+        result = self.reg.unbindUser(3,10)
         expect_result = False
         self.assertEqual(result, expect_result)
 
