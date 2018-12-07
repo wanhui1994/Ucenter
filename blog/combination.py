@@ -67,12 +67,11 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def realtionLink(self,num,data):
+    def realtionLink(self,data,num):
         '''关联接口'''
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
         result=self.data.combinationdict(7,num,'关联',variable)
-        print(result)
         if result['code']== str(self.data.uccode(num,'关联')):
             return False
         else:
@@ -83,7 +82,6 @@ class Combin(Ucenterdata):
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
         result=self.data.combinationdict(8,num,'取消关联',variable)
-        print(result)
         if result['code']== str(self.data.uccode(num,'取消关联')):
             return False
         else:
@@ -109,7 +107,7 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def existAndLink(self,num,data):
+    def existAndLink(self,data,num):
         '''手机号存在关联接口'''
         self.fblogin(data)
         variable={}
@@ -185,7 +183,6 @@ class Combin(Ucenterdata):
 
     def DeleteUserForTest(self,num,dataname,data,data1):
         '''删除用户'''
-
         user=self.data.dykeys(num,dataname,data)
         syscode=self.data.dykeys(num,dataname,data1)
         variable={'sysCode':syscode,'userAccount':user}

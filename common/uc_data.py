@@ -78,6 +78,7 @@ class Ucenterdata():
         pyload=variable
         url="http://ucms.test.faxuan.net"+"".join(url1)
         r = requests.get(url,params=pyload)
+        print(r.url)
         return r.json()
 
 

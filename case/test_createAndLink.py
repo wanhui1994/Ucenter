@@ -3,7 +3,7 @@
 from blog.combination import Combin
 import unittest
 
-class Testregister(unittest.TestCase):
+class Testrcreateandlink(unittest.TestCase):
     '''手机号不存在创建帐号关联测试用例'''
     def setUp(self):
         self.reg = Combin()

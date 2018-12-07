@@ -17,14 +17,14 @@ class Testrealtion(unittest.TestCase):
 
     def test02(self):
         self.reg = Combin()
-        result = self.reg.realtionLink(3,2)
+        result = self.reg.realtionLink(2,3)
         expect_result = False
         self.assertEqual(result, expect_result)
 
 
     def test03(self):
         self.reg = Combin()
-        result = self.reg.realtionLink(4,2)
+        result = self.reg.realtionLink(2,4)
         expect_result = False
         self.assertEqual(result, expect_result)
 

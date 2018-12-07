@@ -70,6 +70,19 @@ class Testregister(unittest.TestCase):
         expect_result = False
         self.assertEqual(result, expect_result)
 
+    def test11(self):
+        self.reg = Combin()
+        result = self.reg.regis(12)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+
+    def test12(self):
+        self.reg = Combin()
+        result = self.reg.regis(13)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
 
     def tearDown(self):
         pass
