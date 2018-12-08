@@ -29,6 +29,38 @@ class Testupdatepas(unittest.TestCase):
         expect_result = False
         self.assertEqual(result, expect_result)
 
+    def test04(self):
+        self.reg = Combin()
+        result = self.reg.updatePassword(5)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+
+    def test05(self):
+        self.reg = Combin()
+        result = self.reg.updatePassword(6)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test06(self):
+        self.reg = Combin()
+        result = self.reg.updatePassword(7)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+    def test07(self):
+        self.reg = Combin()
+        result = self.reg.updatePassword(8)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
+
+    def test08(self):
+        self.reg = Combin()
+        result = self.reg.updatePassword(9)
+        expect_result = False
+        self.assertEqual(result, expect_result)
+
 
     def tearDown(self):
         pass

@@ -37,15 +37,23 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def out(self,num,data):
+    def out(self,test,data,num,):
         '''退出接口'''
         ptsid=self.ucode(data,'平台登录')
         variable={'sid':ptsid['data']['sid']}
-        result=self.data.combinationdict(4,num,'退出登录',variable)
-        if result['code']== str(self.data.uccode(num,'退出登录')):
-            return False
+        if test == '1':
+            result=self.data.combinationdict(4,num,'退出登录',variable)
+            if result['code']== str(self.data.uccode(num,'退出登录')):
+                return False
+            else:
+                return True
         else:
-            return True
+            self.data.combinationdict(4,num,'退出登录',variable)
+            result=self.data.combinationdict(4,num,'退出登录',variable)
+            if result['code']== str(self.data.uccode(num,'退出登录')):
+                return False
+            else:
+                return True
 
     def bindUser(self,data,num):
         '''绑定接口'''
@@ -158,7 +166,7 @@ class Combin(Ucenterdata):
         else:
             return True
 
-    def updateLoginPassword(self,num,data):
+    def updateLoginPassword(self,data,num):
         '''修改密码'''
         udata=self.ucode(data,'平台登录')
         sid=udata['data']['sid']
@@ -193,26 +201,6 @@ class Combin(Ucenterdata):
         else:
             return True
 
-
-    def liucheng(self,num,data):
-        '''绑定--修改--解绑的流程'''
-        ptsid=self.ucode(data,'平台登录')
-        variable={'sid':ptsid['data']['sid']}
-        result=self.data.combinationdict(5,num,'绑定',variable)
-        if result['code']== '200':
-            self.userAccount=self.data.dykeys(num,'绑定','userAccount')
-            self.bindcode=self.data.dykeys(num,'绑定','bindCode')
-            self.type=self.data.dykeys(num,'绑定','bindType')
-            self.sysCode=self.data.dykeys(num,'绑定','sysCode')
-            variable1={'sid':ptsid['data']['sid'],'oldContactWay': self.bindcode,'type': self.type,'userAccount': self.userAccount,'sysCode': self.sysCode}
-            resultxg=self.data.combinationdict(17,num,'修改账号信息',variable1)
-            if resultxg['code']==200:
-                variable2={'sid':ptsid['data']['sid'],'unbindCode': self.bindcode,'unbindType': self.type,'userAccount': self.userAccount,'sysCode': self.sysCode}
-                resultjb=self.data.combinationdict(6,num,'解绑',variable2)
-                if resultjb['code']==200:
-                    return False
-        elif result['code']==400:
-            return False
 
 
 

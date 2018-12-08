@@ -3,34 +3,34 @@
 from blog.combination import Combin
 import unittest
 
-class Testsystemsource(unittest.TestCase):
-    '''获取来源系统下拉列表'''
+class Testdel(unittest.TestCase):
+    '''删除增加的用户信息测试用例'''
     def setUp(self):
         self.reg = Combin()
 
 
     def test01(self):
         self.reg = Combin()
-        result = self.reg.getSystemSource(2)
+        result = self.reg.DeleteUserForTest(2,'注册','userAccount','sysCode')
         expect_result = False
         self.assertEqual(result, expect_result)
 
     def test02(self):
         self.reg = Combin()
-        result = self.reg.getSystemSource(3)
+        result = self.reg.DeleteUserForTest(3,'注册','userAccount','sysCode')
         expect_result = False
         self.assertEqual(result, expect_result)
-
 
     def test03(self):
         self.reg = Combin()
-        result = self.reg.getSystemSource(4)
+        result = self.reg.DeleteUserForTest(4,'注册','userAccount','sysCode')
         expect_result = False
         self.assertEqual(result, expect_result)
 
+
     def test04(self):
         self.reg = Combin()
-        result = self.reg.getSystemSource(5)
+        result = self.reg.DeleteUserForTest(5,'注册','userAccount','sysCode')
         expect_result = False
         self.assertEqual(result, expect_result)
 
@@ -40,6 +40,3 @@ class Testsystemsource(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main()
-
-
-
