@@ -8,7 +8,7 @@ case_path=os.path.join('E:\\py-wh-lx\\Ucenter\\case')
 report_path=os.path.join('E:\\py-wh-lx\\Ucenter\\report\\')
 
 def all_case():
-    discover=unittest.defaultTestLoader.discover(case_path,pattern='all_test.py',top_level_dir=None)
+    discover=unittest.defaultTestLoader.discover(case_path,pattern='test_1_regis.py',top_level_dir=None)
     print(discover)
     return discover
 
