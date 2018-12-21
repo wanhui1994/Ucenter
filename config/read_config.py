@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import configparser
+import os
 
 class Conf():
     def wrl(self,sec,name,value):
@@ -20,6 +21,9 @@ class Conf():
     def read1(self,sec,name):
         '''配置文件读取'''
         cf=configparser.ConfigParser()
-        cf.read('..\\config\\Config.ini')
+        pwd = (os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        path=os.path.join(pwd,'config\Config.ini')
+        print(path)
+        cf.read(path)
         data=cf.get(sec,name)
         return data

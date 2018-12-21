@@ -1,22 +1,24 @@
-#coding=utf-8
-
+# coding=utf-8
 import unittest
 import HTMLTestRunner
-import os
+import os,time
 
-case_path=os.path.join('E:\\py-wh-lx\\Ucenter\\case')
-report_path=os.path.join('E:\\py-wh-lx\\Ucenter\\report\\')
+# 获取文件路径
+curpath = os.path.dirname(os.path.realpath(__file__))
+casepath = os.path.join(curpath, "case")
+reportpath = os.path.join(curpath, "report\\")
 
-def all_case():
-    discover=unittest.defaultTestLoader.discover(case_path,pattern='test_1_regis.py',top_level_dir=None)
-    print(discover)
+def all_case(case_path=casepath, rule="test*.py"):
+    '''加载所有的测试用例'''
+    discover = unittest.defaultTestLoader.discover(case_path,
+                                                  pattern=rule,
+                                                  top_level_dir=None)
     return discover
 
 
 if __name__ == "__main__":
-    # runner = unittest.TextTestRunner()
-    # runner.run(all_case())
-    report_abspath = os.path.join(report_path, "test.html")
+    now=time.strftime("%Y-%m-%d %H_%M_%S")
+    report_abspath =reportpath+now+"result.html"
     fp = open(report_abspath, "wb")
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
                                            title=u'自动化测试报告,测试结果如下：',
@@ -25,3 +27,4 @@ if __name__ == "__main__":
     # 调用add_case函数返回值
     runner.run(all_case())
     fp.close()
+

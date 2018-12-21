@@ -1,13 +1,15 @@
 #coding=utf-8
 
 from common.excel import Excelread
-
+import os
 
 class Opendata():
     '''打开excel读取数据'''
     def openexcel(self,num,name):
         read = Excelread()
-        read.open(r"..\file\数据设计.xlsx",name)
+        pwd=(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) #获取当前路径的上上级路径
+        path=os.path.join(pwd,'file\数据设计.xlsx')
+        read.open(path,name)
         data=read.lines(num)
         modifydata=[]
         for i in range(0,len(data)):
